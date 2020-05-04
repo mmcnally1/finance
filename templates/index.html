@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+         <style>
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <p style="text-align: right">
+        <a href="/deposit"> Deposit Cash </a>
+        <a style="padding-left: 20px" href="/password_change"> Change Your Password </a>
+    </p>
+    <h1>
+        Account Holdings
+    </h1>
+    <table class="center">
+        <tr>
+            <th> Symbol </th>
+            <th style="padding-left: 20px"> Shares </th>
+            <th style="padding-left: 20px"> Purchase Price </th>
+            <th style="padding-left: 20px"> Current Price </th>
+            <th style="padding-left: 20px"> Total </th>
+        </tr>
+        {% for row in acct %}
+        <tr>
+            <td style="text-transform: uppercase">{{row["symbol"]}}</td>
+            <td>{{row["shares"]}}</td>
+            <td>${{row["purch_price"]}}</td>
+            <td>${{row["cur_price"]}}</td>
+            <td>${{row["total"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>
+        Account Totals
+    </h2>
+    <table class="center">
+        <tr>
+            <th> Total Stock </th>
+            <th style="padding-left: 20px"> Cash </th>
+            <th style="padding-left: 20px"> Account Total </th>
+        </tr>
+        <tr>
+            <td> ${{total_holdings}} </td>
+            <td style="padding-left: 20px"> ${{cash}} </td>
+            <td style="padding-left: 20px>"> ${{acct_total}} </td>
+        </tr>
+    </table>
+{% endblock %}

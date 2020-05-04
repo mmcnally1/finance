@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}History{% endblock %}
+
+{% block main %}
+     <style>
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <h1>
+        Trading History
+    </h1>
+    <table class="center">
+        <tr>
+            <th> Transaction </th>
+            <th style="padding-left: 20px"> Symbol </th>
+            <th style="padding-left: 20px"> Price </th>
+            <th style="padding-left: 20px"> Shares </th>
+            <th style="padding-left: 20px"> Date/Time </th>
+        </tr>
+        {% for row in hist %}
+        <tr>
+            <td>{{row["trans_type"]}}</td>
+            <td style="text-transform: uppercase">{{row["symbol"]}}</td>
+            <td>${{row["price"]}}</td>
+            <td>{{row["shares"]}}</td>
+            <td>{{row["date_time"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+        <p>
+            <a href="/history_all"> See All </a>
+            <a style="padding-left: 20px" href="/index"> Back to Account </a>
+        </p>
+
+{% endblock %}

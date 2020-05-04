@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}Confirmation{% endblock %}
+
+{% block main %}
+     <style>
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <h1>
+        Purchase Confirmation
+    </h1>
+    <table class="center">
+        <tr>
+            <th> Start Balance </th>
+            <th style="padding-left: 20px"> Company </th>
+            <th style="padding-left: 20px"> Price </th>
+            <th style="padding-left: 20px"> Shares </th>
+            <th style="padding-left: 20px"> Total Price </th>
+            <th style="padding-left: 20px"> New Balance </th>
+        </tr>
+        <tr>
+            <td> ${{start_balance}} </td>
+            <td style="padding-left: 20px; text-transform: uppercase"> {{company}} </td>
+            <td style="padding-left: 20px"> ${{price}} </td>
+            <td style="padding-left: 20px"> {{shares}} </td>
+            <td style="padding-left: 20px"> ${{total_price}} </td>
+            <td style="padding-left: 20px"> ${{new_balance}} </td>
+        </tr>
+    </table>
+        <p>
+            <a href="/"> Back to Account </a>
+            <a style="padding-left: 10px" href="/buy"> Buy More Stocks </a>
+        </p>
+
+{% endblock %}
